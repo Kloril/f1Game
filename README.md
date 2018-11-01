@@ -4,3 +4,4 @@
 
   Ce jeu a pour thème la formule 1 et sera composé de plusieurs modules :
   
+Développé par Florentino Da Silva Neves & Maxime Prévôt

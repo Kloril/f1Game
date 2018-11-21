@@ -20,8 +20,8 @@ var GF = function(){
     // vars for handling inputs
     var inputStates = {};
 
-    // The monster !
-    var monster = {
+    // The car !
+    var car = {
       x:10,
       y:10,
       speed:1
@@ -55,37 +55,26 @@ var GF = function(){
        ctx.clearRect(0, 0, w, h);
      }
 
-     // Functions for drawing the monster and maybe other objects
-     function drawMyMonster(x, y) {
-       // draw a big monster !
-       // head
-
-       // save the context
-       ctx.save();
-
-       // translate the coordinate system, draw relative to it
-       ctx.translate(x, y);
-
-       // (0, 0) is the top left corner of the monster.
-       ctx.strokeRect(0, 0, 100, 100);
-
-       // eyes
-       ctx.fillRect(20, 20, 10, 10);
-       ctx.fillRect(65, 20, 10, 10);
-
-       // nose
-       ctx.strokeRect(45, 40, 10, 40);
-
-       // mouth
-       ctx.strokeRect(35, 84, 30, 10);
-
-       // teeth
-       ctx.fillRect(38, 84, 10, 10);
-       ctx.fillRect(52, 84, 10, 10);
-
-      // restore the context
-      ctx.restore();
-    }
+     // Functions for drawing the car and maybe other objects
+     function drawMycar(x, y) {
+        ctx.save();
+        ctx.translate(x, y);
+      
+        // On va faire un masque en forme de cercle
+        ctx.beginPath();
+        ctx.fillStyle = "red";
+        ctx.arc(0+50, 0+50, 50, 0, Math.PI*2);
+        ctx.fill();
+      
+        ctx.save();
+        ctx.clip();
+        ctx.drawImage(img1, 0, 0, 100, 100);
+        ctx.restore();
+      
+        //ctx.fillRect(50, 50, 100, 100);
+      
+        ctx.restore();
+      }
 
     var mainLoop = function(time){
         //main function, called each frame
@@ -97,35 +86,35 @@ var GF = function(){
         // gamepad
         updateGamePadStatus();
 
-        // draw the monster
-        drawMyMonster(monster.x, monster.y);
+        // draw the car
+        drawMycar(car.x, car.y);
 
-        // Check inputs and move the monster
-        updateMonsterPosition();
+        // Check inputs and move the car
+        updatecarPosition();
 
         // call the animation loop every 1/60th of second
         requestAnimationFrame(mainLoop);
     };
 
 
-    function updateMonsterPosition() {
-      monster.speedX = monster.speedY = 0;
+    function updatecarPosition() {
+      car.speedX = car.speedY = 0;
         // check inputStates
         if (inputStates.left) {
             ctx.fillText("left", 150, 20);
-            monster.speedX = -monster.speed;
+            car.speedX = -car.speed;
         }
         if (inputStates.up) {
             ctx.fillText("up", 150, 40);
-           monster.speedY = -monster.speed;
+           car.speedY = -car.speed;
         }
        if (inputStates.right) {
             ctx.fillText("right", 150, 60);
-            monster.speedX = monster.speed;
+            car.speedX = car.speed;
         }
         if (inputStates.down) {
             ctx.fillText("down", 150, 80);
-            monster.speedY = monster.speed;
+            car.speedY = car.speed;
         }
         if (inputStates.space) {
             ctx.fillText("space bar", 140, 100);
@@ -135,14 +124,14 @@ var GF = function(){
         }
        if (inputStates.mousedown) {
             ctx.fillText("mousedown b" + inputStates.mouseButton, 5, 180);
-            monster.speed = 5;
+            car.speed = 5;
         } else {
           // mouse up
-          monster.speed = 1;
+          car.speed = 1;
         }
 
-        monster.x += monster.speedX;
-        monster.y += monster.speedY;
+        car.x += car.speedX;
+        car.y += car.speedY;
 
     }
 

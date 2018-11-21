@@ -1,4 +1,5 @@
 // Inits
+let img1 = new Image();
 window.onload = function init() {
   var game = new GF();
   game.start();
@@ -26,7 +27,10 @@ var GF = function(){
       y:10,
       speed:1
     };
-
+    img1.onload = function(){
+        ctx.drawMyCar(monster.x,monster.y);
+    }
+      img1.src("test.png");
     var measureFPS = function(newTime){
 
          // test for the very first invocation
@@ -56,36 +60,6 @@ var GF = function(){
      }
 
      // Functions for drawing the monster and maybe other objects
-     function drawMyMonster(x, y) {
-       // draw a big monster !
-       // head
-
-       // save the context
-       ctx.save();
-
-       // translate the coordinate system, draw relative to it
-       ctx.translate(x, y);
-
-       // (0, 0) is the top left corner of the monster.
-       ctx.strokeRect(0, 0, 100, 100);
-
-       // eyes
-       ctx.fillRect(20, 20, 10, 10);
-       ctx.fillRect(65, 20, 10, 10);
-
-       // nose
-       ctx.strokeRect(45, 40, 10, 40);
-
-       // mouth
-       ctx.strokeRect(35, 84, 30, 10);
-
-       // teeth
-       ctx.fillRect(38, 84, 10, 10);
-       ctx.fillRect(52, 84, 10, 10);
-
-      // restore the context
-      ctx.restore();
-    }
 
     var mainLoop = function(time){
         //main function, called each frame
@@ -98,7 +72,7 @@ var GF = function(){
         updateGamePadStatus();
 
         // draw the monster
-        drawMyMonster(monster.x, monster.y);
+        drawMyCar(monster.x, monster.y);
 
         // Check inputs and move the monster
         updateMonsterPosition();
@@ -107,7 +81,21 @@ var GF = function(){
         requestAnimationFrame(mainLoop);
     };
 
+    function drawMyCar(x, y) {
+      ctx.save();
+      ctx.translate(x, y);
 
+
+
+      ctx.save();
+
+      ctx.drawImage(img1, x, y, 100, 100);
+      ctx.restore();
+
+      //ctx.fillRect(50, 50, 100, 100);
+
+      ctx.restore();
+    }
     function updateMonsterPosition() {
       monster.speedX = monster.speedY = 0;
         // check inputStates

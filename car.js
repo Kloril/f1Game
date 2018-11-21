@@ -25,21 +25,29 @@ function init() {
 }
 
 
-let x = 10; // position initiale
+let x = 10;
+let y=10; // position initiale
 function mainloop() {  //fonction principale
   // on efface le canvas
   ctx.clearRect(0, 0, w, h);
 
-  dessineVoiture(x, 10);
-      window.addEventListener('keydown', function(event) {
-         if (event.keyCode === 37) {
+  dessineVoiture(x, y); //on dessine la voiture
+      window.addEventListener('keydown', function(event) { // gérer les fleches directionelles
+         if (event.keyCode === 37) { //gauche
           x-=0.1;
          }
-         else x+=0.1;
-      }, false);
+         if (event.keyCode === 40) { //bas
+          y+=0.1;
+         }
+         if (event.keyCode === 38) { //haut
+          y-=0.1;
+         }
+         else if (event.keyCode === 39) { //droite
+          x+=0.1;
+         }
+    }  , false);
 
-  //on dessine la voiture
-                 // on se deplace de x
+
 
   // on rappelle la boucle d'animation
   requestAnimationFrame(mainloop);

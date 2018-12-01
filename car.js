@@ -66,38 +66,38 @@ function mainloop() {  //fonction principale
          }
     }  , false);
 
-
+  testCollide();
 
   // on rappelle la boucle d'animation
   requestAnimationFrame(mainloop);
 }
 
-/*function testCollide(){
+function testCollide(){
   
-      if(((r.x+r.l) > lc)) {
-          r.vx = -r.vx;
+      if(c.x+100 > w) {
+          c.x = -c.vx;
           // on remet au point de contact
-          r.x  = lc - r.l;
+          c.x  = w-100 ; // a refaire
       }
       
-      if(r.x < 0) {
-          r.vx = -r.vx;
+      if(c.x < 0) {
+          c.x = -c.vx;
           // on remet au point de contact
-          r.x = 0
+          c.x = 0
       }
       
-       if((r.y+r.h) > hc) {
-         r.vy = -r.vy;
-         r.y = hc - r.h;
-       };
+       if(c.y+100 > h) {
+         c.y = -c.vy;
+         c.y = h - 100; // a refaire
+       }
     
-       if(r.y < 0)  {
-         r.vy = -r.vy;
-         r.y = 0;
-       };
-    });
-  }
-}*/
+       if(c.y < 0)  {
+         c.y = -c.vy;
+         c.y = 0;
+       }
+}
+  
+
 function dessineVoiture(c) {
   ctx.save();  //sauvegarde le ctx
   ctx.translate(c.x,c.y);    //translate de x et y

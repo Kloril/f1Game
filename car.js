@@ -21,7 +21,7 @@ function init() {
   img1.onload = function() {
       requestAnimationFrame(mainloop);
   }
-  img1.src = "test.png"; //crée une image et lance l'animation
+  img1.src = "f1car.png"; //crée une image et lance l'animation
 }
 
 

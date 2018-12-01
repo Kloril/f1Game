@@ -1,4 +1,4 @@
-var circuit = ["ligneDroite","ligneDroite","ligneDroite","virageDroite"];
+var circuits = [];
 
 
 let canvas, ctx, w, h;

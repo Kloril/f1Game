@@ -1,4 +1,5 @@
 // Inits
+let img1 = new Image();
 window.onload = function init() {
   var game = new GF();
   game.start();
@@ -20,13 +21,16 @@ var GF = function(){
     // vars for handling inputs
     var inputStates = {};
 
-    // The car !
-    var car = {
+    // The monster !
+    var monster = {
       x:10,
       y:10,
       speed:1
     };
-
+    img1.onload = function(){
+        ctx.drawMyCar(monster.x,monster.y);
+    }
+      img1.src("test.png");
     var measureFPS = function(newTime){
 
          // test for the very first invocation
@@ -55,26 +59,7 @@ var GF = function(){
        ctx.clearRect(0, 0, w, h);
      }
 
-     // Functions for drawing the car and maybe other objects
-     function drawMycar(x, y) {
-        ctx.save();
-        ctx.translate(x, y);
-      
-        // On va faire un masque en forme de cercle
-        ctx.beginPath();
-        ctx.fillStyle = "red";
-        ctx.arc(0+50, 0+50, 50, 0, Math.PI*2);
-        ctx.fill();
-      
-        ctx.save();
-        ctx.clip();
-        ctx.drawImage(img1, 0, 0, 100, 100);
-        ctx.restore();
-      
-        //ctx.fillRect(50, 50, 100, 100);
-      
-        ctx.restore();
-      }
+     // Functions for drawing the monster and maybe other objects
 
     var mainLoop = function(time){
         //main function, called each frame
@@ -86,35 +71,49 @@ var GF = function(){
         // gamepad
         updateGamePadStatus();
 
-        // draw the car
-        drawMycar(car.x, car.y);
+        // draw the monster
+        drawMyCar(monster.x, monster.y);
 
-        // Check inputs and move the car
-        updatecarPosition();
+        // Check inputs and move the monster
+        updateMonsterPosition();
 
         // call the animation loop every 1/60th of second
         requestAnimationFrame(mainLoop);
     };
 
+    function drawMyCar(x, y) {
+      ctx.save();
+      ctx.translate(x, y);
 
-    function updatecarPosition() {
-      car.speedX = car.speedY = 0;
+
+
+      ctx.save();
+
+      ctx.drawImage(img1, x, y, 100, 100);
+      ctx.restore();
+
+      //ctx.fillRect(50, 50, 100, 100);
+
+      ctx.restore();
+    }
+    function updateMonsterPosition() {
+      monster.speedX = monster.speedY = 0;
         // check inputStates
         if (inputStates.left) {
             ctx.fillText("left", 150, 20);
-            car.speedX = -car.speed;
+            monster.speedX = -monster.speed;
         }
         if (inputStates.up) {
             ctx.fillText("up", 150, 40);
-           car.speedY = -car.speed;
+           monster.speedY = -monster.speed;
         }
        if (inputStates.right) {
             ctx.fillText("right", 150, 60);
-            car.speedX = car.speed;
+            monster.speedX = monster.speed;
         }
         if (inputStates.down) {
             ctx.fillText("down", 150, 80);
-            car.speedY = car.speed;
+            monster.speedY = monster.speed;
         }
         if (inputStates.space) {
             ctx.fillText("space bar", 140, 100);
@@ -124,14 +123,14 @@ var GF = function(){
         }
        if (inputStates.mousedown) {
             ctx.fillText("mousedown b" + inputStates.mouseButton, 5, 180);
-            car.speed = 5;
+            monster.speed = 5;
         } else {
           // mouse up
-          car.speed = 1;
+          monster.speed = 1;
         }
 
-        car.x += car.speedX;
-        car.y += car.speedY;
+        monster.x += monster.speedX;
+        monster.y += monster.speedY;
 
     }
 

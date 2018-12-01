@@ -1,67 +1,67 @@
+// attendre chargement de la page
 window.onload = init;
 
+//création des variables globales
 let canvas, ctx, w, h;
 let mousePos;
 let img1;
 
-
+//début de la fonction d'initialisation
 function init() {
-  canvas = document.querySelector("#myCanvas");
-  ctx = canvas.getContext("2d");
+  canvas = document.querySelector("#myCanvas"); // récupére la balise canvas d'id myCanvas
+  ctx = canvas.getContext("2d");    // crée le contexte(ctx) 2d
 
-  w = canvas.width;
+  w = canvas.width;     //récupère largeur et hauteur du canvas
   h = canvas.height;
 
-  document.onmousemove = traiteDeplacementsSouris;
+
 
    img1 = new Image();
 
   img1.onload = function() {
-    startGame();
+      requestAnimationFrame(mainloop);
   }
-  img1.src = "test.png";
+  img1.src = "test.png"; //crée une image et lance l'animation
 }
 
-function startGame() {
-    // on demarre la boucle d'animation
-  requestAnimationFrame(mainloop);
 
-}
-
-function traiteDeplacementsSouris(event) {
-  let rect = canvas.getBoundingClientRect();
-  mousePos = {};
-  mousePos.x = event.clientX - rect.left;
-  mousePos.y = event.clientY - rect.top;
-}
 let x = 10;
-function mainloop() {
+let y=10; // position initiale
+function mainloop() {  //fonction principale
   // on efface le canvas
   ctx.clearRect(0, 0, w, h);
 
- dessineVoiture(x, 10);
-  x+=1;
+  dessineVoiture(x, y); //on dessine la voiture
+      window.addEventListener('keydown', function(event) { // gérer les fleches directionelles
+         if (event.keyCode === 37) { //gauche
+          x-=0.1;
+         }
+         if (event.keyCode === 40) { //bas
+          y+=0.1;
+         }
+         if (event.keyCode === 38) { //haut
+          y-=0.1;
+         }
+         else if (event.keyCode === 39) { //droite
+          x+=0.1;
+         }
+    }  , false);
+
+
 
   // on rappelle la boucle d'animation
   requestAnimationFrame(mainloop);
 }
 
 function dessineVoiture(x, y) {
-  ctx.save();
-  ctx.translate(x, y);
+  ctx.save();  //sauvegarde le ctx
+  ctx.translate(x, y);    //translate de x et y
 
-  // On va faire un masque en forme de cercle
-  ctx.beginPath();
-  ctx.fillStyle = "red";
-  ctx.arc(0+50, 0+50, 50, 0, Math.PI*2);
-  ctx.fill();
+  //on fait les modifs
 
-  ctx.save();
-  ctx.clip();
-  ctx.drawImage(img1, 0, 0, 100, 100);
-  ctx.restore();
+  ctx.drawImage(img1, 0, 0, 100, 100); //desinne l'image
+  ctx.restore(); //restore le ctx
 
   //ctx.fillRect(50, 50, 100, 100);
 
-  ctx.restore();
 }

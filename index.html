@@ -8,6 +8,29 @@
   <title>JS Bin</title>
 </head>
 <body>
+  <div id ="Menu"> 
+    <h1>f1Game</h1>
+
+    <div id="optionsMenu">
+        <button id="start">START</button>
+        <button id="options">CHOIX VOITURE</button>
+        <button id="fastest">TOP CHRONO</button>
+     </div>
+  </div>
+
+  <div id="menuOptions" hidden>
+      <h3>OPTIONS</h3>
+      <p>SON/PAS SON:</p>
+      <img id="sonOn" src="http://anticuts.com/wp-content/uploads/2010/12/SpeakerIcon-300x300.png">
+      <button  class="retour"> << Retour </button>
+  </div>
+
+  <div id="menuFastest" hidden>
+      <h3>Top3 Chrono</h3>
+      <p id="list"></p>
+       <button  class="retour"> << Return </button>
+  </div>
+
 <canvas id="myCanvas" width=1510 height=700>
   </canvas>
 

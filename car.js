@@ -100,11 +100,11 @@ function testCollide(){
 
 function dessineVoiture(c) {
   ctx.save();  //sauvegarde le ctx
-  ctx.translate(c.x,c.y);    //translate de x et y
+ // ctx.translate(c.x,c.y);    //translate de x et y
 
   //on fait les modifs
 
-  ctx.drawImage(img1, 0, 0, 100, 100);
+  ctx.drawImage(img1, c.x, c.y, 100, 100);
    //desinne l'image
   ctx.restore(); //restore le ctx
 

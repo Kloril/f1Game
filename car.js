@@ -23,6 +23,13 @@ class Car{
 
 }
 
+$('#start').click(function() {
+  $('#optionsMenu').hide();
+  init();
+  $('#myCanvas').show();
+});
+
+
 var c= new Car();
 //début de la fonction d'initialisation
 function init() {
@@ -34,7 +41,7 @@ function init() {
 
 
 
-   img1 = new Image();
+  img1 = new Image();
 
   img1.onload = function() {
       requestAnimationFrame(mainloop);
@@ -44,31 +51,38 @@ function init() {
 
 
 let x = 10;
-let y=10; // position initiale
+let y = 10; // position initiale
 function mainloop() {  //fonction principale
   // on efface le canvas
   ctx.clearRect(0, 0, w, h);
 
   dessineVoiture(c); //on dessine la voiture
-      window.addEventListener('keydown', function(event) { // gérer les fleches directionelles
-         if (event.keyCode === 37) { //gauche
-          c.x-=c.vx;
-         }
-         if (event.keyCode === 40) { //bas
-          c.y+=c.vy;
-         }
-         if (event.keyCode === 38) { //haut
-          c.y-=c.vy;
-         }
-         else if (event.keyCode === 39) { //droite
-          c.x+=c.vx;
-         }
-    }  , false);
-
+  window.addEventListener('keydown', kdHandler, false);
+  window.addEventListener('keydown', kuHandler, false);
   testCollide();
 
   // on rappelle la boucle d'animation
   requestAnimationFrame(mainloop);
+}
+
+function KuHandler(event){
+  c.vx = 0;
+  c.vy = 0;
+}
+
+function kdHandler(event){ // gérer les fleches directionelles
+  if (event.keyCode === 37) { //gauche
+   c.x-=c.vx;
+  }
+  if (event.keyCode === 40) { //bas
+   c.y+=c.vy;
+  }
+  if (event.keyCode === 38) { //haut
+   c.y-=c.vy;
+  }
+  else if (event.keyCode === 39) { //droite
+   c.x+=c.vx;
+  }
 }
 
 function testCollide(){

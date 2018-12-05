@@ -1,7 +1,7 @@
 canvas {
   border: 1px solid black;
 }
-/*#bg-menu{
+#bg-menu{
   width:1300px;
   height:600px;
   position : absolute; 
@@ -10,7 +10,7 @@ canvas {
 #optionsMenu{
   padding-top: 200px;
 }
-/*#optionsMenu button{
+#optionsMenu button{
   display : block ;
   position : relative ;
   height : 50px;
@@ -31,4 +31,4 @@ canvas {
 
 #optionsMenu button:focus {
   outline: none;
-}*/
+}

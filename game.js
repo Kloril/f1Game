@@ -9,7 +9,8 @@ let imgCircuit;
 
 
 
-var c= new Car();
+var c;
+
 //début de la fonction d'initialisation
 function init() {
   canvas = document.querySelector("#myCanvas"); // récupére la balise canvas d'id myCanvas
@@ -24,7 +25,9 @@ $('#start').click(function() {
   init();
   $('#myCanvas').show();
 });
-  
+
+
+
 imgCircuit= new Image();
 
 imgCircuit.src = "monaco.jpg";
@@ -33,6 +36,9 @@ imgCircuit.src = "monaco.jpg";
   img1 = new Image();
 
   img1.onload = function() {
+    c= new Car(img1);
+    declareListeners('keydown',c);
+
       requestAnimationFrame(mainloop);
   }
   img1.src = "f1car.png"; //crée une image et lance l'animation*/
@@ -46,9 +52,9 @@ function mainloop() {  //fonction principale
   ctx.clearRect(0, 0, w, h);
  
   ctx.drawImage(imgCircuit,0,0,w,h);
-  dessineVoiture(c,img1); //on dessine la voiture
-  listener('keydown',c);
   
+  c.draw(ctx); //on dessine la voiture
+  c.move();
   
   testCollide();
 

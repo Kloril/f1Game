@@ -28,7 +28,7 @@ $('#start').click(function() {
 imgCircuit= new Image();
 
 imgCircuit.src = "monaco.jpg";
-ctx.drawImage(imgCircuit,10,10,w,h);
+
 
   img1 = new Image();
 
@@ -45,9 +45,10 @@ function mainloop() {  //fonction principale
   // on efface le canvas
   ctx.clearRect(0, 0, w, h);
  
-  
+  ctx.drawImage(imgCircuit,0,0,w,h);
   dessineVoiture(c,img1); //on dessine la voiture
   listener('keydown',c);
+  
   
   testCollide();
 

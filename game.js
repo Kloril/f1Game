@@ -26,8 +26,24 @@ $('#start').click(function() {
   $('#myCanvas').show();
 });
 
+$('#cars').click(function() {
+  $('#menu').hide();
+  $('#menuCars').show();
 
+});
 
+$('#fastest').click(function() {
+  $('#menu').hide();
+  $('#menuFastest').show();
+
+});
+$('.retour').click(function(){
+  $('#menu').show();
+  $('#menuCars').hide();
+  $('#menuFastest').hide();
+});
+
+//testTrack();
 imgCircuit= new Image();
 
 imgCircuit.src = "monaco.jpg";
@@ -51,12 +67,12 @@ function mainloop() {  //fonction principale
   // on efface le canvas
   ctx.clearRect(0, 0, w, h);
  
-  ctx.drawImage(imgCircuit,0,0,w,h);
+ // ctx.drawImage(imgCircuit,0,0,w,h);
   
   c.draw(ctx); //on dessine la voiture
   c.move();
   
-  testCollide();
+  testCollide(90,249);
 
   // on rappelle la boucle d'animation
   requestAnimationFrame(mainloop);

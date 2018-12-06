@@ -1,9 +1,9 @@
-function testCollide(){
+function testCollide(carWidth,carLength){
 
-    if(c.x+100 > w) {
+    if(c.x+(carLength/2) > w) {
         c.x = -c.vx;
         // on remet au point de contact
-        c.x  = w-100 ; // a refaire
+        c.x  = w-carLength/2 ; // a refaire
     }
 
     if(c.x < 0) {
@@ -12,9 +12,9 @@ function testCollide(){
         c.x = 0
     }
 
-     if(c.y+100 > h) {
+     if(c.y+(carWidth/2) > h) {
        c.y = -c.vy;
-       c.y = h - 100; // a refaire
+       c.y = h - carWidth/2; // a refaire
      }
 
      if(c.y < 0)  {

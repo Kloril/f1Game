@@ -9,7 +9,7 @@ function init(){
 
     imageVoiture = new Image();
 
-    imageVoiture.src = "test.png";
+    imageVoiture.src = "f1car.png";
     
     imageVoiture.onload = function(){
         startGame();

@@ -45,8 +45,6 @@ imgCircuit.src = "monaco.jpg";
 }
 
 
-let x = 10;
-let y = 10; // position initiale
 function mainloop() {  //fonction principale
   // on efface le canvas
   ctx.clearRect(0, 0, w, h);

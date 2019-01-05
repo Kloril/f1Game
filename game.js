@@ -68,6 +68,7 @@ function mainloop() {  //fonction principale
   // ctx.drawImage(imgCircuit,0,0,w,h);
   drawTrack(ctx);
   c.draw(ctx); //on dessine la voiture
+  updateCarPosition(c);
   c.move();
 
   testCollide(90, 249);

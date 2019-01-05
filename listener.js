@@ -1,27 +1,72 @@
+var inputStates = {};
+
+
 function declareListeners(event, car) { // gérer les fleches directionelles
+  
 
   window.addEventListener('keydown', function (event) {
     if (event.keyCode === 37) { //gauche
-      
-      car.angle -= Math.PI / 60;
-     
+      inputStates.left = true;
+       
     }
     if (event.keyCode === 40) { //bas
-      car.v = -car.backSpeed;
+      inputStates.down = true;
+      
     }
     if (event.keyCode === 38) { //haut
-      car.v = 7;
+      inputStates.up = true;
+      
     }
-    else if (event.keyCode === 39) { //droite
-    
-      car.angle += Math.PI / 60;
+    if (event.keyCode === 39) { //droite
+      inputStates.right = true;
+  
+    }
+    if (event.keyCode === 32){ //frein
+      inputStates.brake = true;
+
     }
 
   }, false);
 
   window.addEventListener('keyup', function (event) {
-    car.v= 0;
+
+    if (event.keyCode === 37) { //gauche
+      inputStates.left = false;  
+    }
+    if (event.keyCode === 40) { //bas
+      inputStates.down = false; 
+    }
+    if (event.keyCode === 38) { //haut
+      inputStates.up = false; 
+    }
+    if (event.keyCode === 39) { //droite
+      inputStates.right = false;
+    }
+    if (event.keyCode === 32){ //frein
+      inputStates.brake = false;
+    }
+
   }, false);
 
+}
+
+function updateCarPosition(car){
+  if (inputStates.left){
+    car.angle -= Math.PI / 60;
+  }
+  if (inputStates.right){
+    car.angle += Math.PI / 60;
+  }
+  if (inputStates.down){
+    car.v = -car.backSpeed;
+  }
+  if (inputStates.up){
+    car.v = 7;
+  }
+  if (inputStates.brake){ 
+    while (car.v > 0){
+      car.v -= 1;
+    }; 
+  }
 }
 

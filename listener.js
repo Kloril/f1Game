@@ -2,7 +2,7 @@ function declareListeners(event, car) { // gérer les fleches directionelles
 
   window.addEventListener('keydown', function (event) {
     if (event.keyCode === 37) { //gauche
-      //car.vx = -car.backSpeed;
+      car.angle -= Math.PI / 60;
     }
     if (event.keyCode === 40) { //bas
       car.vx = -car.backSpeed;
@@ -11,7 +11,7 @@ function declareListeners(event, car) { // gérer les fleches directionelles
       car.vx = 7;
     }
     else if (event.keyCode === 39) { //droite
-     // car.vx = 7;
+      car.angle += Math.PI / 60;
     }
 
   }, false);

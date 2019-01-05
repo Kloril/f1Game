@@ -36,7 +36,8 @@ class Car{
     }
   }
   
-  
+  // position initiale
+ 
   function dessineVoiture(c,img) {
     ctx.save();  //sauvegarde le ctx
     ctx.translate(c.x,c.y);    //translate de x et y

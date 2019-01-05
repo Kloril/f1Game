@@ -2,10 +2,10 @@ class Car{
     constructor(img){
       this.x =10;             // position
       this.y=10;
-      this.vx= 0;
-      this.vy=0;
+      this.v= 0;
+     
       this.speed= 0;
-      this.angle= Math.PI /3;  // current angle facing
+      this.angle= Math.PI /2;  // current angle facing
            
   
       this.maxSpeed= 9;
@@ -22,6 +22,7 @@ class Car{
     
      
       ctx.scale(0.5,0.5);
+     // if (car.alfa > 2 * Math.PI) car.alfa %= 2 * Math.PI;
       ctx.rotate(c.angle);
       ctx.drawImage(this.img, 0, 0, 249, 90);
        //desinne l'image
@@ -31,8 +32,8 @@ class Car{
     }
 
     move() {
-      this.x += this.vx * Math.cos(c.angle);
-      this.y -= this.vy * Math.sin(c.angle);
+      this.x += this.v * Math.cos(c.angle);
+      this.y += this.v * Math.sin(c.angle);
     }
   }
   

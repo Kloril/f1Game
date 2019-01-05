@@ -7,7 +7,7 @@ class Car{
       this.rotationStep= 5;   // how fast to turn
       this.rotation= 115;     // current angle facing
       this.vitesse;
-      this.angle
+      this.angle = 1;
       this.maxSpeed= 7;
       this.backSpeed= 1.1;
 
@@ -20,7 +20,7 @@ class Car{
     
       //on fait les modifs
       ctx.save();
-      ctx.rotate(this.angle);
+      ctx.rotate(this.angle * Math.PI / 180);
       ctx.drawImage(this.img, 0, 0, 100, 100);
        //desinne l'image
       ctx.restore(); //restore le ctx

@@ -26,7 +26,7 @@ function declareListeners(event, car) { // gérer les fleches directionelles
 
     }
 
-  }, false);
+  });
 
   window.addEventListener('keyup', function (event) {
 
@@ -46,16 +46,16 @@ function declareListeners(event, car) { // gérer les fleches directionelles
       inputStates.brake = false;
     }
 
-  }, false);
+  });
 
 }
 
 function updateCarPosition(car){
   if (inputStates.left){
-    car.angle -= Math.PI / 60;
+    car.angle -= Math.PI / 120;
   }
   if (inputStates.right){
-    car.angle += Math.PI / 60;
+    car.angle += Math.PI / 120;
   }
   if (inputStates.down){
     car.v = -car.backSpeed;

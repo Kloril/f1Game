@@ -5,7 +5,7 @@ class Car{
       this.v= 0;
      
       this.speed= 0;
-      this.angle= Math.PI /2;  // current angle facing
+      this.angle= Math.PI / 10;  // current angle facing
       
       this.acceleration = 1.1;
   

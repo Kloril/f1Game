@@ -66,7 +66,9 @@ function mainloop() {  //fonction principale
   ctx.clearRect(0, 0, w, h);
 
   // ctx.drawImage(imgCircuit,0,0,w,h);
-  drawTrack(ctx);
+  //drawTrack(ctx);
+  drawOval(600,470,400,300,100,"#555555");
+  drawOval(600,470,400,300,10,"white");
   c.draw(ctx); //on dessine la voiture
   updateCarPosition(c);
   c.move();

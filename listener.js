@@ -26,7 +26,7 @@ function declareListeners(event, car) { // gérer les fleches directionelles
 
     }
 
-  }, false);
+  });
 
   window.addEventListener('keyup', function (event) {
 
@@ -48,7 +48,7 @@ function declareListeners(event, car) { // gérer les fleches directionelles
       inputStates.brake = false;
     }
 
-  }, false);
+  });
 
 }
 

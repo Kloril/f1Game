@@ -12,3 +12,17 @@ function drawTrack(ctx) {
     ctx.fillRect(970,60,100,100)
     ctx.restore();
 }
+
+function drawOval(x, y, rw, rh, linewidth, color)
+{
+  var canvas = document.getElementById("myCanvas"); 
+  var context = canvas.getContext("2d");
+  context.save();
+  context.scale(1,  rh/rw);
+  context.beginPath();
+  context.arc(x, y, rw, 0, 2 * Math.PI);
+  context.restore();
+  context.lineWidth = linewidth;
+  context.strokeStyle=color;
+  context.stroke();  
+}

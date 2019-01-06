@@ -5,7 +5,7 @@ class Car{
       this.v= 0;
      
       this.speed= 0;
-      this.angle= Math.PI / 10;  // current angle facing
+      this.angle= Math.PI / 2;  // current angle facing
       
       this.acceleration = 1.1;
   
@@ -25,7 +25,7 @@ class Car{
       ctx.scale(0.5,0.5);
      // if (car.alfa > 2 * Math.PI) car.alfa %= 2 * Math.PI;
       ctx.rotate(c.angle);
-      ctx.drawImage(this.img, 0, 0, 249, 90);
+      ctx.drawImage(this.img, 400, 400, 249, 90);
        //desinne l'image
       ctx.restore(); //restore le ctx
     

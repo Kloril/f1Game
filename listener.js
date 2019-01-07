@@ -71,13 +71,19 @@ function updateCarPosition(car){
   }
   if (inputStates.up == false){
     if (car.v>0){
-      car.v -= 0.1;
+      car.v -= 0.05;
+    }
+    if(car.v < 0){
+      car.v=0;
     }
   }
   if (inputStates.brake){ 
     if(car.v > 0){
-      car.v -= 0.2;
+      car.v -= 0.05;
     }; 
+    if(car.v < 0){
+      car.v=0;
+    }
   }
 }
 

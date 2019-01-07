@@ -19,8 +19,8 @@ function init() {
   w = canvas.width;     //récupère largeur et hauteur du canvas
   h = canvas.height;
 
-
-  /*$('#start').click(function() {
+  $('#myCanvas').hide();
+  $('#start').click(function() {
     $('#menu').hide();
     init();
     $('#myCanvas').show();
@@ -41,7 +41,7 @@ function init() {
     $('#menu').show();
     $('#menuCars').hide();
     $('#menuFastest').hide();
-  });*/
+  });
 
 
   imgCircuit = new Image();

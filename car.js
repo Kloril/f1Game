@@ -8,8 +8,8 @@ class Car{
       this.angle= Math.PI /2;  // current angle facing
       this.acceleration= 1.05;    
   
-      this.maxSpeed= 11;
-      this.backSpeed= 1.1;
+      this.maxSpeed= 8;
+      this.backSpeed= 1.5;
 
       this.img = img;
     }

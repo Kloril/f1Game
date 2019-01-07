@@ -38,9 +38,7 @@ function declareListeners(event, car) { // gérer les fleches directionelles
     }
     if (event.keyCode === 38) { //haut
       inputStates.up = false;
-      /*while(car.v>0){
-        car.v -= 0.1;
-      }*/
+      
     }
     if (event.keyCode === 39) { //droite
       inputStates.right = false;
@@ -70,12 +68,15 @@ function updateCarPosition(car){
     else if (car.v<=0){
       car.v = 0.5;
     }
-    
-    
+  }
+  if (inputStates.up == false){
+    if (car.v>0){
+      car.v -= 0.1;
+    }
   }
   if (inputStates.brake){ 
-    while (car.v > 0){
-      car.v -= 1;
+    if(car.v >0){
+      car.v -= 0.2;
     }; 
   }
 }

@@ -9,7 +9,7 @@ class Car{
       this.acceleration= 1.05;    
   
       this.maxSpeed= 8;
-      this.backSpeed= 1.5;
+      this.backSpeed = -1.5;
 
       this.img = img;
     }
@@ -21,10 +21,10 @@ class Car{
       //on fait les modifs
     
      
-      ctx.scale(0.5,0.5);
+      ctx.scale(0.3,0.3);
      // if (car.alfa > 2 * Math.PI) car.alfa %= 2 * Math.PI;
       ctx.rotate(c.angle);
-      ctx.drawImage(this.img, 0, 0, 249, 90);
+      ctx.drawImage(this.img, -125, -45, 249, 90);
        //desinne l'image
       ctx.restore(); //restore le ctx
     

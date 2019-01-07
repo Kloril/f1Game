@@ -59,7 +59,9 @@ function updateCarPosition(car){
     car.angle += Math.PI / 120;
   }
   if (inputStates.down){
-    car.v = -car.backSpeed;
+   // if(car.v<=0){
+      car.v = car.backSpeed;
+    //}
   }
   if (inputStates.up){
     if(car.v > 0 && car.v < car.maxSpeed){
@@ -71,11 +73,11 @@ function updateCarPosition(car){
   }
   if (inputStates.up == false){
     if (car.v>0){
-      car.v -= 0.05;
+      car.v *= 0.98;
     }
     if(car.v < 0){
-      car.v=0;
-    }
+      car.v*=0.98;
+   }
   }
   if (inputStates.brake){ 
     if(car.v > 0){

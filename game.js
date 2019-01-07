@@ -54,7 +54,7 @@ function init() {
   img1.onload = function () {
     c = new Car(img1);
     declareListeners('keydown', c);
-
+    
     requestAnimationFrame(mainloop);
   }
   img1.src = "f1car.png"; //crée une image et lance l'animation*/
@@ -70,6 +70,7 @@ function mainloop() {  //fonction principale
   // ctx.drawImage(imgCircuit,0,0,w,h);
   drawTrack(ctx);
   c.draw(ctx); //on dessine la voiture
+  updateCarPosition(c);
   c.move();
 
   testCollide(90, 249);

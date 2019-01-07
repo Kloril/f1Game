@@ -63,12 +63,12 @@ function updateCarPosition(car){
     car.v = -car.backSpeed;
   }
   if (inputStates.up){
-    car.v = 7;
+    car.v += 0.3;
   }
   if (inputStates.brake){ 
-    while (car.v > 0){
+   
       car.v -= 1;
-    }; 
+    
   }
 }
 

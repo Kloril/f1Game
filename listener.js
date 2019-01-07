@@ -75,7 +75,7 @@ function updateCarPosition(car){
     }
   }
   if (inputStates.brake){ 
-    if(car.v >0){
+    if(car.v > 0){
       car.v -= 0.2;
     }; 
   }

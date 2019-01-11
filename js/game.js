@@ -96,7 +96,6 @@ function mainloop() {  //fonction principale
   // c2.draw(ctx); //on dessine la voiture
   // updateCarPosition2(c2);
   // c2.move();
-  
   //testCollide(90, 249);
   collision(c);
  // console.log(c.x);

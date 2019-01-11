@@ -51,24 +51,23 @@ function secteurNumber(car) {
     console.log(car.secteur);
 }
 
-function collision(car) {
+function collide(car) {
     switch (car.secteur) {
         case 0:
-            if (car.x-37.5 >= 490){
-                car.x=12;
-              
-            }
-         
             break;
         case 1:
+     
             break;
         case 2:
+       
             break;
         case 3:
+       
             break;
         case 4:
             break;
         case 5:
+       
             break;
         case 6:
             break;

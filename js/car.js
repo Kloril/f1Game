@@ -8,7 +8,7 @@ class Car{
       this.angle= 0;  // current angle facing
       this.acceleration= 1.05;    
   
-      this.maxSpeed= 8;
+      this.maxSpeed= 4;
       this.backSpeed = -1.5;
       this.secteur=0;
       this.img = img;
@@ -21,7 +21,7 @@ class Car{
       //on fait les modifs
     
      
-      ctx.scale(0.3,0.3);
+      ctx.scale(0.2,0.2);
      // if (car.alfa > 2 * Math.PI) car.alfa %= 2 * Math.PI;
       ctx.rotate(c.angle);
       ctx.drawImage(this.img, -125, -45, 249, 90);

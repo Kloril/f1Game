@@ -1,16 +1,16 @@
 class Car{
     constructor(img){
-      this.x =10;             // position
-      this.y=10;
+      this.x =450;             // position
+      this.y=50;
       this.v= 0;
      
       this.speed= 0;
-      this.angle= Math.PI /2;  // current angle facing
+      this.angle= 0;  // current angle facing
       this.acceleration= 1.05;    
   
       this.maxSpeed= 8;
       this.backSpeed = -1.5;
-
+      this.secteur=0;
       this.img = img;
     }
     

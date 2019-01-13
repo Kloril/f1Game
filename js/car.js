@@ -5,12 +5,21 @@ class Car{
       this.v= 0;
      
       this.speed= 0;
+<<<<<<< HEAD:js/car.js
       this.angle= 0;  // current angle facing
       this.acceleration= 1.05;    
   
       this.maxSpeed= 2.5;
       this.backSpeed = -1.5;
       this.secteur=0;
+=======
+      this.angle= Math.PI /2;  // current angle facing
+      this.acceleration= 1.05;    
+  
+      this.maxSpeed= 8;
+      this.backSpeed = -1.5;
+
+>>>>>>> 6a7cab376317e337be7288c6f9a0b14b3bf7f886:car.js
       this.img = img;
     }
     
@@ -21,7 +30,11 @@ class Car{
       //on fait les modifs
     
      
+<<<<<<< HEAD:js/car.js
       ctx.scale(0.2,0.2);
+=======
+      ctx.scale(0.3,0.3);
+>>>>>>> 6a7cab376317e337be7288c6f9a0b14b3bf7f886:car.js
      // if (car.alfa > 2 * Math.PI) car.alfa %= 2 * Math.PI;
       ctx.rotate(c.angle);
       ctx.drawImage(this.img, -125, -45, 249, 90);

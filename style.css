@@ -1,6 +1,11 @@
 canvas {
   border: 1px solid black;
+<<<<<<< HEAD
   background-color: green;
+=======
+  background-color:green;
+
+>>>>>>> 6a7cab376317e337be7288c6f9a0b14b3bf7f886
 }
 
 #bg-menu{
